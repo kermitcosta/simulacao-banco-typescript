@@ -1,5 +1,7 @@
+import { Cargo } from "./classes/Cargo.js"
 import { Cliente } from "./classes/Cliente.js"
 import { Endereco } from "./classes/Endereco.js"
+import { Funcionario } from "./classes/Funcionario.js"
 
 let end = new Endereco()
 end.cep = "13054-620"
@@ -22,4 +24,13 @@ cliente.vip = true
 cliente.addEndereco(end)
 cliente.addEndereco(end2)
 
-console.log(cliente.listarCliente())
+
+let gerente = new Cargo("Gerente")
+let funcionario = new Funcionario("Mariano", "98367422902", "88998548222")
+funcionario.addCargo(gerente)
+funcionario.salario = 3000
+funcionario.salario
+let auxiliar = new Cargo("Auxiliar")
+funcionario.addCargo(auxiliar)
+
+console.log(funcionario.listarCargos())

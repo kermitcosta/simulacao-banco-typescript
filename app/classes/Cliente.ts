@@ -3,15 +3,18 @@ import { Pessoa } from "./Pessoa.js";
 
 export class Cliente extends Pessoa {
 
-    private _vip: boolean;
+    private _vip: boolean = false
     private _enderecos: Array<Endereco> = []
 
-    addEndereco(endereco: Endereco): void {
+
+    public addEndereco(endereco: Endereco): void {
         this._enderecos.push(endereco)
     }
 
-    listarEnderecos(): void {
+    public listarEnderecos(): void {
+
         this._enderecos.forEach((endereco) => {
+
             console.log("-------------------------")
             console.log(`CEP: ${endereco.cep}`)
             console.log(`LOGRADOURO: ${endereco.logradouro}`)
@@ -19,16 +22,22 @@ export class Cliente extends Pessoa {
             console.log(`COMPLEMENTO: ${endereco.complemento}`)
             console.log(`CIDADE: ${endereco.cidade}`)
             console.log(`UF: ${endereco.uf}`)
+
         })
 
     }
 
-    listarCliente(): void {
-        console.log(`Nome: ${this._nome}`)
-        console.log(`Cpf: ${this._cpf}`)
-        console.log(`Telefone: ${this._telefone}`)
-        console.log(`É VIP?: ${this._vip}`)
+    public listarCliente(): void {
+
+        let vip: string
+        this._vip ? vip = "SIM" : vip = "NÃO"
+
+        console.log(`NOME: ${this._nome}`)
+        console.log(`CPF: ${this._cpf}`)
+        console.log(`TELEFONE: ${this._telefone}`)
+        console.log(`VIP: ${vip}`)
         this.listarEnderecos()
+
     }
 
     public get vip(): boolean {
