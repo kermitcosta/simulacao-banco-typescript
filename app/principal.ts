@@ -24,7 +24,6 @@ cliente.vip = true
 cliente.addEndereco(end)
 cliente.addEndereco(end2)
 
-
 let gerente = new Cargo("Gerente")
 let funcionario = new Funcionario("Mariano", "98367422902", "88998548222")
 funcionario.addCargo(gerente)

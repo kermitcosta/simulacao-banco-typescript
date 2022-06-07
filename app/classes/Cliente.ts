@@ -1,3 +1,4 @@
+import { Conta } from "./Conta.js";
 import { Endereco } from "./Endereco.js";
 import { Pessoa } from "./Pessoa.js";
 
@@ -5,10 +6,14 @@ export class Cliente extends Pessoa {
 
     private _vip: boolean = false
     private _enderecos: Array<Endereco> = []
-
+    private _contas: Array<Conta> = []
 
     public addEndereco(endereco: Endereco): void {
         this._enderecos.push(endereco)
+    }
+
+    public addConta(conta: Conta): void {
+        this._contas.push(conta)
     }
 
     public listarEnderecos(): void {
