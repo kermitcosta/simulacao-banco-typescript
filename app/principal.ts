@@ -1,4 +1,5 @@
 import { Endereco } from "./classes/Endereco.js"
+import { Pessoa } from "./classes/Pessoa.js"
 
 let end = new Endereco()
 end.cep = "13054-620"
@@ -7,5 +8,6 @@ end.numero = "1472"
 end.complemento = "ap 607"
 end.cidade = "Campinas"
 end.uf = "SP"
+
 
 console.log(end)
