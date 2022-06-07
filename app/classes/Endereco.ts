@@ -1,4 +1,5 @@
 export class Endereco {
+
     private _cep: string
     private _logradouro: string
     private _numero: string
@@ -53,4 +54,5 @@ export class Endereco {
     public set uf(value: string) {
         this._uf = value
     }
+
 }

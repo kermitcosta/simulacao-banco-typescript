@@ -1,11 +1,13 @@
 export abstract class Pessoa {
-    private _telefone: string
-    readonly _cpf: string
-    readonly _nome: string
 
-    constructor(nome: string, cpf: string) {
+    protected _nome: string
+    protected _cpf: string
+    protected _telefone: string
+
+    constructor(nome: string, cpf: string, telefone: string) {
         this._cpf = cpf
         this._nome = nome
+        this._telefone = telefone
     }
 
     public get cpf(): string {
@@ -23,4 +25,5 @@ export abstract class Pessoa {
     public set telefone(value: string) {
         this._telefone = value
     }
+
 }
