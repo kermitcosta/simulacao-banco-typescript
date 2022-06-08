@@ -4,15 +4,8 @@ export abstract class Conta {
 
     private _cliente: Cliente
     private _numero: string
-    private _saldo: number
+    private _saldo = 0
 
-    public depositar(valor: number): void {
-        this.saldo += valor
-    }
-
-    public sacar(valor: number): void {
-        this.saldo -= valor
-    }
 
     public get cliente(): Cliente {
         return this._cliente
@@ -34,8 +27,13 @@ export abstract class Conta {
         return this._saldo
     }
 
-    public set saldo(value: number) {
-        this._saldo = value
+    public set saldo(saldo: number) {
+        this._saldo = saldo
     }
+
+
+    public abstract depositar(valor: number): void
+
+    public abstract sacar(valor: number): void
 
 }

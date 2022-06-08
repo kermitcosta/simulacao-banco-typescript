@@ -1,14 +1,18 @@
 export abstract class Pessoa {
 
-    protected _nome: string
-    protected _cpf: string
-    protected _telefone: string
+    private _nome: string
+    private _cpf: string
+    private _telefone: string
+
 
     constructor(cpf: string, nome: string, telefone: string) {
+
         this._cpf = cpf
         this._nome = nome
         this._telefone = telefone
+
     }
+
 
     public get cpf(): string {
         return this._cpf
