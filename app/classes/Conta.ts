@@ -6,13 +6,12 @@ export abstract class Conta {
     private _numero: string
     private _saldo = 0
 
+    public set cliente(cliente: Cliente) {
+        this._cliente = cliente
+    }
 
     public get cliente(): Cliente {
         return this._cliente
-    }
-
-    public set cliente(value: Cliente) {
-        this._cliente = value
     }
 
     public get numero(): string {

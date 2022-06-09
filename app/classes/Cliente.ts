@@ -16,9 +16,16 @@ export class Cliente extends Pessoa {
 
     }
 
+    public get contas() {
+        return [...this._contas]
+    }
 
     public get vip(): boolean {
         return this._vip
+    }
+
+    public set vip(valor: boolean) {
+        this._vip = valor
     }
 
 
