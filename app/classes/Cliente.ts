@@ -9,7 +9,7 @@ export class Cliente extends Pessoa {
     private _contas: Array<Conta> = []
 
 
-    constructor(cpf: string, nome: string, telefone: string, vip: boolean) {
+    constructor(cpf: string, nome: string, telefone: string, vip: boolean = false) {
 
         super(cpf, nome, telefone)
         this._vip = vip

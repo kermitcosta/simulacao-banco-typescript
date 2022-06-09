@@ -14,9 +14,8 @@ export class ContaPoupanca extends Conta {
         this._variacao = value;
     }
 
-
     public depositar(valor: number): void {
-
+        this.saldo += valor
     }
 
     public sacar(valor: number): void {

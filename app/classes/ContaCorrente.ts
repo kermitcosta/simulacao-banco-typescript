@@ -5,13 +5,12 @@ export class ContaCorrente extends Conta {
 
     private _limite: number
 
-
     public get limite(): number {
         return this._limite
     }
 
-    public limiteVip(cliente: Cliente): void {
-        cliente.vip ? this._limite = 3000 : this._limite = 50
+    public addCliente(cliente: Cliente): void {
+        this.limiteVip(cliente)
     }
 
     public transferir(contaDestino: Conta, valor: number): void {
@@ -23,8 +22,15 @@ export class ContaCorrente extends Conta {
 
         }
 
+        this.saldo -= valor
         contaDestino.depositar(valor)
-        this.saldoNegativo(this.saldo, valor)
+
+        if (this.saldo < 0) {
+
+            this.saldoNegativo(this.saldo, valor)
+
+        }
+
         console.log("Transferência efetuada")
 
     }
@@ -39,7 +45,13 @@ export class ContaCorrente extends Conta {
         }
 
         this.saldo -= valor
-        this.saldoNegativo(this.saldo, valor)
+
+        if (this.saldo < 0) {
+
+            this.saldoNegativo(this.saldo, valor)
+
+        }
+
         console.log("Saque efetuado")
 
     }
@@ -72,15 +84,23 @@ export class ContaCorrente extends Conta {
 
         }
 
+        this.saldo += valor
+
     }
+
+    public limiteVip(cliente: Cliente): void {
+        cliente.vip ? this._limite = 30000 : this._limite = 50
+    }
+
 
     private testeVip(): boolean {
 
         if (this.cliente.vip) {
             return true
+        } else {
+            return false
         }
 
-        return false
 
     }
 
@@ -88,7 +108,9 @@ export class ContaCorrente extends Conta {
 
         if ((this.saldo < 0 && valor <= this._limite) || (valor <= this.saldo + this._limite)) {
             return true
-        } else { return false }
+        } else {
+            return false
+        }
 
     }
 

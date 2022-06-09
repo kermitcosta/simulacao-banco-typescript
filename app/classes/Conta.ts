@@ -6,9 +6,13 @@ export abstract class Conta {
     private _numero: string
     private _saldo = 0
 
-    public set cliente(cliente: Cliente) {
+    constructor(numero: string, cliente: Cliente) {
+
         this._cliente = cliente
+        this._numero = numero
+
     }
+
 
     public get cliente(): Cliente {
         return this._cliente
@@ -23,13 +27,17 @@ export abstract class Conta {
     }
 
     public get saldo(): number {
-        return this._saldo
+        let saldo = this._saldo
+        return parseFloat(saldo.toFixed(2))
     }
 
     public set saldo(saldo: number) {
         this._saldo = saldo
     }
 
+    public addCliente(cliente: Cliente) {
+        this._cliente = cliente
+    }
 
     public abstract depositar(valor: number): void
 
