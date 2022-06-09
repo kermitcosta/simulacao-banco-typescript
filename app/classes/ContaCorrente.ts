@@ -1,5 +1,6 @@
 import { Cliente } from "./Cliente.js";
 import { Conta } from "./Conta.js";
+import { ContaPoupanca } from "./ContaPoupanca.js";
 
 export class ContaCorrente extends Conta {
 
@@ -13,43 +14,42 @@ export class ContaCorrente extends Conta {
         this.limiteVip(cliente)
     }
 
-    public transferir(contaDestino: Conta, valor: number): void {
+    public transferir(contaDestino: Conta, valor: number, data?: Date): void {
 
-        if (!this.testeSaque(valor)) {
+        if (contaDestino instanceof ContaPoupanca) {
+            contaDestino.depositar(valor, data)
+            this.saldo -= valor
+        } else {
 
-            console.log("Transferência não pode ser efetuada")
-            return
+            if (!this.testeSaque(valor)) {
+                console.log("Transferência não pode ser efetuada")
+                return
+            }
+
+            this.saldo -= valor
+            contaDestino.depositar(valor)
+
+            if (this.saldo < 0) {
+                this.saldoNegativo(this.saldo, valor)
+            }
+
+            console.log("Transferência efetuada")
 
         }
-
-        this.saldo -= valor
-        contaDestino.depositar(valor)
-
-        if (this.saldo < 0) {
-
-            this.saldoNegativo(this.saldo, valor)
-
-        }
-
-        console.log("Transferência efetuada")
 
     }
 
     public sacar(valor: number): void {
 
         if (!this.testeSaque(valor)) {
-
             console.log("Saque não pode ser efetuado")
             return
-
         }
 
         this.saldo -= valor
 
         if (this.saldo < 0) {
-
             this.saldoNegativo(this.saldo, valor)
-
         }
 
         console.log("Saque efetuado")
@@ -62,13 +62,11 @@ export class ContaCorrente extends Conta {
 
         if (this.testeVip()) {
 
-            limiteAuxiliar = 3000
+            limiteAuxiliar = 30000
 
             if (this._limite < limiteAuxiliar) {
-
                 this.saldo += valor
                 this._limite += valor
-
             }
 
         } else {
@@ -76,10 +74,8 @@ export class ContaCorrente extends Conta {
             limiteAuxiliar = 50
 
             if (this._limite < limiteAuxiliar) {
-
                 this.saldo += valor
                 this._limite += valor
-
             }
 
         }
@@ -92,7 +88,6 @@ export class ContaCorrente extends Conta {
         cliente.vip ? this._limite = 30000 : this._limite = 50
     }
 
-
     private testeVip(): boolean {
 
         if (this.cliente.vip) {
@@ -100,7 +95,6 @@ export class ContaCorrente extends Conta {
         } else {
             return false
         }
-
 
     }
 
@@ -127,6 +121,5 @@ export class ContaCorrente extends Conta {
         saldo = saldo + limiteInicial - (limiteInicial - Math.abs(saldo))
 
     }
-
 
 }

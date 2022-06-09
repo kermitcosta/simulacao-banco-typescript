@@ -13,7 +13,6 @@ export abstract class Conta {
 
     }
 
-
     public get cliente(): Cliente {
         return this._cliente
     }
@@ -33,10 +32,6 @@ export abstract class Conta {
 
     public set saldo(saldo: number) {
         this._saldo = saldo
-    }
-
-    public addCliente(cliente: Cliente) {
-        this._cliente = cliente
     }
 
     public abstract depositar(valor: number): void

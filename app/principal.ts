@@ -44,11 +44,9 @@ enderecoVip2.uf = "SP"
 clienteVip.addEndereco(enderecoVip2)
 
 const contaCorrenteVip = new ContaCorrente("8934-1", clienteVip)
-contaCorrenteVip.addCliente(clienteVip)
 clienteVip.addConta(contaCorrenteVip)
 
 const contaPoupancaVip = new ContaPoupanca("9283-3", clienteVip)
-contaPoupancaVip.addCliente(clienteVip)
 clienteVip.addConta(contaPoupancaVip)
 
 //Cliente 2 (não é vip com um endereço)
@@ -63,43 +61,41 @@ enderecoComum.uf = "RN"
 clienteComum.addEndereco(enderecoComum)
 
 const contaCorrenteComum = new ContaCorrente("2176-1", clienteComum)
-contaCorrenteComum.addCliente(clienteComum)
 clienteComum.addConta(contaCorrenteComum)
 
 const contaPoupancaComum = new ContaPoupanca("6732-3", clienteComum)
-contaPoupancaComum.addCliente(clienteComum)
 clienteComum.addConta(contaPoupancaComum)
+
 
 //CLIENTE NÃO VIP
 
 // Faça um depósito de um salário mínimo na conta corrente do cliente não vip
-contaCorrenteComum.depositar(1212)
+// contaCorrenteComum.depositar(1212)
 // console.log(contaCorrenteComum.saldo)
 // console.log(contaCorrenteComum.limite)
 
 // Faça uma transferência de 5% de um salário mínimo da conta corrente do 
 // cliente não vip para a sua conta poupança no dia 04/06/2022.
-contaCorrenteComum.transferir(contaPoupancaComum, 60.6)
+// contaCorrenteComum.transferir(contaPoupancaComum, 60.6)
 // console.log(contaCorrenteComum.saldo)
 // console.log(contaCorrenteComum.limite)
 // console.log(contaPoupancaComum.saldo)
 
 // Faça um saque de 50% de um salário mínimo da conta corrente do cliente
 // não vip e exiba o saldo em conta após a ação.
-contaCorrenteComum.sacar(606)
+// contaCorrenteComum.sacar(606)
 // console.log(contaCorrenteComum.saldo)
 // console.log(contaCorrenteComum.limite)
 
 // Tente fazer outro saque de 50% de um salário mínimo da conta corrente do
 // cliente não vip
-contaCorrenteComum.sacar(606)
+// contaCorrenteComum.sacar(606)
 // console.log(contaCorrenteComum.saldo)
 // console.log(contaCorrenteComum.limite)
 
 // Faça um depósito de 50 reais na conta poupança do cliente não vip no dia
 // 09/06/2022
-contaPoupancaComum.depositar(50)
-//FALTA O DIA
+// contaPoupancaComum.depositar(50, new Date(2022, 5, 9))
 // console.log(contaPoupancaComum.saldo)
 
 // Faça um resgate de 60 reais da conta poupança no dia 09/07/2022.
@@ -113,19 +109,26 @@ contaCorrenteVip.depositar(60600)
 
 //Faça uma transferência de 20 salários mínimos da conta corrente do cliente
 // vip para a sua conta poupança no dia 05/06/2022.
-contaCorrenteVip.transferir(contaPoupancaVip, 24240)
-// console.log(contaCorrenteVip.saldo)
-// console.log(contaCorrenteVip.limite)
-// console.log(contaPoupancaVip.saldo)
+contaCorrenteVip.transferir(contaPoupancaVip, 24240, new Date(2022, 5, 9))
+console.log(contaCorrenteVip.saldo)
+console.log(contaPoupancaVip.saldo)
+
+
+contaPoupancaVip.resgatar(contaCorrenteVip, 24240, new Date(2022, 6, 9))
+console.log(contaCorrenteVip.saldo)
+console.log(contaPoupancaVip.saldo)
+
+contaPoupancaVip.sacar(10000)
+console.log(contaPoupancaVip.saldo)
 
 // Faça um saque de 50000 reais da conta corrente do cliente vip e exiba o
 // saldo em conta após a ação.
-contaCorrenteVip.sacar(50000)
+// contaCorrenteVip.sacar(50000)
 // console.log(contaCorrenteVip.saldo)
 // console.log(contaCorrenteVip.limite)
 
 // Tente fazer outro saque de 50000 reais da conta corrente do cliente vip.
-contaCorrenteVip.sacar(50000)
+// contaCorrenteVip.sacar(50000)
 // console.log(contaCorrenteVip.saldo)
 // console.log(contaCorrenteVip.limite)
 

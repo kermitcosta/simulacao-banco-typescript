@@ -8,7 +8,6 @@ export class Cliente extends Pessoa {
     private _enderecos: Array<Endereco> = []
     private _contas: Array<Conta> = []
 
-
     constructor(cpf: string, nome: string, telefone: string, vip: boolean = false) {
 
         super(cpf, nome, telefone)
@@ -27,7 +26,6 @@ export class Cliente extends Pessoa {
     public set vip(valor: boolean) {
         this._vip = valor
     }
-
 
     public addEndereco(endereco: Endereco): void {
         this._enderecos.push(endereco)
@@ -65,6 +63,5 @@ export class Cliente extends Pessoa {
         this.listarEnderecos()
 
     }
-
 
 }

@@ -4,7 +4,6 @@ export abstract class Pessoa {
     private _cpf: string
     private _telefone: string
 
-
     constructor(cpf: string, nome: string, telefone: string) {
 
         this._cpf = cpf
@@ -13,13 +12,16 @@ export abstract class Pessoa {
 
     }
 
-
     public get cpf(): string {
         return this._cpf
     }
 
     public get nome(): string {
         return this._nome
+    }
+
+    public set nome(nome: string) {
+        this._nome = nome
     }
 
     public get telefone(): string {

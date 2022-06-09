@@ -6,7 +6,6 @@ export class Cargo {
         this._nome = nome
     }
 
-
     public get nome(): string {
         return this._nome
     }
