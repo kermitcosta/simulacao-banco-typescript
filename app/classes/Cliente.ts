@@ -47,7 +47,6 @@ export class Cliente extends Pessoa {
             console.log(`UF: ${endereco.uf}`)
             console.log("-------------------------")
 
-            return
         })
     }
 
@@ -64,6 +63,11 @@ export class Cliente extends Pessoa {
         console.log("-------------------------")
         console.log("Endereço(s):")
         this.listarEnderecos()
+        console.log("Saldo contas:")
+        this._contas.forEach((conta) => {
+            console.log(`Conta: ${conta.numero}`)
+            console.log(`Saldo: ${conta.saldo}`)
+        })
 
     }
 

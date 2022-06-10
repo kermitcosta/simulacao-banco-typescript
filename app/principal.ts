@@ -123,24 +123,18 @@ contaCorrenteVip.sacar(50000)
 //Cliente Comum
 console.log("-------------------------")
 console.log("Cliente Comum:")
-console.log(clienteComum.listarCliente())
-console.log("Cliente Comum Saldos:")
-console.log(`Conta Corrente: ${contaCorrenteComum.saldo}`)
-console.log(`Conta Poupança: ${contaPoupancaComum.saldo}`)
+clienteComum.listarCliente()
 console.log("-------------------------")
 
 //Cliente Vip
 console.log("Cliente VIP:")
-console.log(clienteVip.listarCliente())
-console.log("Cliente VIP Saldos:")
-console.log(`Saldo conta Corrente: ${contaCorrenteVip.saldo}`)
-console.log(`Saldo conta Poupança: ${contaPoupancaVip.saldo}`)
+clienteVip.listarCliente()
 console.log("-------------------------")
 
 // Liste todos os funcionários do banco, seus respectivos salários e cargos.
 console.log("Gerente:")
-console.log(funcionarioGerente.listarAtributos())
+funcionarioGerente.listarAtributos()
 console.log("-------------------------")
 console.log("Atendente:")
-console.log(funcionarioAtendente.listarAtributos())
+funcionarioAtendente.listarAtributos()
 console.log("-------------------------")
