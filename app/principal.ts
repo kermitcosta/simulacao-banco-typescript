@@ -104,22 +104,57 @@ clienteComum.addConta(contaPoupancaComum)
 //CLIENTE VIP
 
 // Faça um depósito de 50 salários mínimos na conta corrente do cliente vip.
-contaCorrenteVip.depositar(60600)
+console.log(`Saldo: ${contaCorrenteComum.saldo}`)
+console.log(`limite: ${contaCorrenteComum.limite}`)
+console.log("---------------------")
+// contaCorrenteComum.sacar(50)
+// console.log(`Saldo: ${contaCorrenteComum.saldo}`)
+// console.log(`limite: ${contaCorrenteComum.limite}`)
+// console.log("---------------------")
+// contaCorrenteComum.depositar(10)
+// console.log("---------------------")
+// contaCorrenteComum.sacar(20)
+// console.log("---------------------")
+// contaCorrenteComum.sacar(40)
+// console.log("---------------------")
+// contaCorrenteComum.depositar(51)
+// console.log("---------------------")
+// console.log(`Saldo: ${contaCorrenteComum.saldo}`)
+// console.log(`limite: ${contaCorrenteComum.limite}`)
+// console.log("---------------------")
+// contaCorrenteComum.transferir(contaPoupancaComum, 52, new Date(2022, 5, 9))
+// console.log(`Saldo: ${contaCorrenteComum.saldo}`)
+// console.log(`limite: ${contaCorrenteComum.limite}`)
+// console.log("---------------------")
+// console.log(contaPoupancaComum)
+// contaCorrenteVip.depositar(20000)
+// console.log(`Saldo: ${contaCorrenteVip.saldo}`);
+// console.log(`limite: ${contaCorrenteVip.limite}`);
+// console.log("---------------------")
+// contaCorrenteVip.sacar()
+// console.log(contaCorrenteVip.saldo);
+// console.log(contaCorrenteVip.limite);
+
+
+
+
+
+
 // console.log(contaCorrenteVip.saldo)
 
 //Faça uma transferência de 20 salários mínimos da conta corrente do cliente
 // vip para a sua conta poupança no dia 05/06/2022.
-contaCorrenteVip.transferir(contaPoupancaVip, 24240, new Date(2022, 5, 9))
-console.log(contaCorrenteVip.saldo)
-console.log(contaPoupancaVip.saldo)
+// contaCorrenteVip.transferir(contaPoupancaVip, 24240, new Date(2022, 5, 9))
+// console.log(contaCorrenteVip.saldo)
+// console.log(contaPoupancaVip.saldo)
 
 
-contaPoupancaVip.resgatar(contaCorrenteVip, 24240, new Date(2022, 6, 9))
-console.log(contaCorrenteVip.saldo)
-console.log(contaPoupancaVip.saldo)
+// contaPoupancaVip.resgatar(contaCorrenteVip, 24240, new Date(2022, 6, 9))
+// console.log(contaCorrenteVip.saldo)
+// console.log(contaPoupancaVip.saldo)
 
-contaPoupancaVip.sacar(10000)
-console.log(contaPoupancaVip.saldo)
+// contaPoupancaVip.sacar(10000)
+// console.log(contaPoupancaVip.saldo)
 
 // Faça um saque de 50000 reais da conta corrente do cliente vip e exiba o
 // saldo em conta após a ação.
