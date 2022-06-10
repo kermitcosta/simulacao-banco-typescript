@@ -27,7 +27,7 @@ export class Cliente extends Pessoa {
         this._vip = valor
     }
 
-    public addEndereco(endereco: Endereco): void {
+    public set endereco(endereco: Endereco) {
         this._enderecos.push(endereco)
     }
 
@@ -39,16 +39,16 @@ export class Cliente extends Pessoa {
 
         this._enderecos.forEach((endereco) => {
 
-            console.log("-------------------------")
             console.log(`CEP: ${endereco.cep}`)
             console.log(`LOGRADOURO: ${endereco.logradouro}`)
             console.log(`NÚMERO: ${endereco.numero}`)
             console.log(`COMPLEMENTO: ${endereco.complemento}`)
             console.log(`CIDADE: ${endereco.cidade}`)
             console.log(`UF: ${endereco.uf}`)
+            console.log("-------------------------")
 
+            return
         })
-
     }
 
     public listarCliente(): void {
@@ -56,10 +56,13 @@ export class Cliente extends Pessoa {
         let vip: string
         this._vip ? vip = "SIM" : vip = "NÃO"
 
+        console.log("-------------------------")
         console.log(`NOME: ${this.nome}`)
         console.log(`CPF: ${this.cpf}`)
         console.log(`TELEFONE: ${this.telefone}`)
         console.log(`VIP: ${vip}`)
+        console.log("-------------------------")
+        console.log("Endereço(s):")
         this.listarEnderecos()
 
     }

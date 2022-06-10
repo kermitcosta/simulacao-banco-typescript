@@ -4,9 +4,9 @@ import { Pessoa } from "./Pessoa.js"
 export class Funcionario extends Pessoa {
 
     private _salario: number;
-    private _cargo: Array<string> = [];
+    private _cargo: Array<Cargo> = [];
 
-    public get cargo(): Array<string> {
+    public get cargo(): Array<Cargo> {
         return this._cargo;
     }
 
@@ -19,12 +19,17 @@ export class Funcionario extends Pessoa {
     }
 
     public addCargo(cargo: Cargo) {
-        this._cargo.push(cargo.nome)
+        this._cargo.push(cargo)
     }
 
-    // public listarCargos(): void {
-    //     console.log("Cargo(s) exercido(s):")
-    //     this._cargo.forEach((cargo) => console.log(cargo.nome))
-    // }
+    public listarAtributos(): void {
+
+        console.log(`NOME: ${this.nome}`)
+        console.log(`CPF: ${this.cpf}`)
+        console.log(`TELEFONE: ${this.telefone}`)
+        console.log(`Salário: ${this._salario}`)
+        console.log("Cargo(s) exercido(s):")
+        this._cargo.forEach((cargo) => console.log(cargo.nome))
+    }
 
 }

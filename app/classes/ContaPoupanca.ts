@@ -6,10 +6,6 @@ export class ContaPoupanca extends Conta {
     private _variacao: number
     private _saldoAniversario = new SaldoAniversario()
 
-    public get saldo(): number {
-        return this._saldoAniversario.saldo
-    }
-
     public get variacao(): number {
         return this._variacao
     }
@@ -25,6 +21,8 @@ export class ContaPoupanca extends Conta {
 
         this._saldoAniversario.dia = new Date(anoDeposito, mesDeposito, diaDeposito)
         this._saldoAniversario.saldo = valor
+        this.saldo += valor
+
     }
 
     public sacar(valor: number): void {
@@ -47,6 +45,7 @@ export class ContaPoupanca extends Conta {
 
         if (mesResgate >= novoMes && diaResgate >= diaDeposito) {
             this._saldoAniversario.saldo -= valor
+            this.saldo -= valor
             contaDestino.depositar(valor)
             console.log("Resgate efetuado")
         } else {

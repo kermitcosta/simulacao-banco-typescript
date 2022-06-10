@@ -10,6 +10,7 @@ export abstract class Conta {
 
         this._cliente = cliente
         this._numero = numero
+        cliente.addConta(this)
 
     }
 
