@@ -22,7 +22,7 @@ export class Funcionario extends Pessoa {
         this._cargo.push(cargo)
     }
 
-    public listarAtributos(): void {
+    public listar(): void {
 
         console.log(`NOME: ${this.nome}`)
         console.log(`CPF: ${this.cpf}`)

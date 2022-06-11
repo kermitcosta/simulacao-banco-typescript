@@ -50,7 +50,7 @@ export class Cliente extends Pessoa {
         })
     }
 
-    public listarCliente(): void {
+    public listar(): void {
 
         let vip: string
         this._vip ? vip = "SIM" : vip = "NÃO"
@@ -64,9 +64,11 @@ export class Cliente extends Pessoa {
         console.log("Endereço(s):")
         this.listarEnderecos()
         console.log("Saldo contas:")
+        console.log("-------------------------")
         this._contas.forEach((conta) => {
-            console.log(`Conta: ${conta.numero}`)
+            console.log(`Número: ${conta.numero}`)
             console.log(`Saldo: ${conta.saldo}`)
+            console.log("-------------------------")
         })
 
     }

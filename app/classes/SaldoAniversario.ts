@@ -1,6 +1,11 @@
 export class SaldoAniversario {
 
-    public dia: Date
+    public dia: number
     public saldo: number
+
+    constructor(dia: number, saldo: number) {
+        this.dia = dia
+        this.saldo = saldo
+    }
 
 }

@@ -74,7 +74,7 @@ contaCorrenteComum.depositar(1212)
 
 // Faça uma transferência de 5% de um salário mínimo da conta corrente do
 // cliente não vip para a sua conta poupança no dia 04/06/2022.
-contaCorrenteComum.transferir(contaPoupancaComum, 60.6, new Date(2022, 5, 4))
+contaCorrenteComum.transferir(contaPoupancaComum, 60.6, "2022-06-04")
 // console.log(contaCorrenteComum.saldo)
 // console.log(contaPoupancaComum)
 
@@ -89,11 +89,10 @@ contaCorrenteComum.sacar(606)
 
 // Faça um depósito de 50 reais na conta poupança do cliente não vip no dia
 // 09/06/2022
-contaPoupancaComum.depositar(50, new Date(2022, 5, 9))
-
+contaPoupancaComum.depositar(50, "2022-06-09")
 
 // Faça um resgate de 60 reais da conta poupança no dia 09/07/2022.
-contaPoupancaComum.resgatar(contaCorrenteComum, 60, new Date(2022, 6, 9))
+contaPoupancaComum.resgatar(contaCorrenteComum, 60, "2022-07-09")
 
 
 //CLIENTE VIP
@@ -103,7 +102,7 @@ contaCorrenteVip.depositar(60600)
 
 //Faça uma transferência de 20 salários mínimos da conta corrente do cliente
 // vip para a sua conta poupança no dia 05/06/2022.
-contaCorrenteVip.transferir(contaPoupancaVip, 24240, new Date(2022, 5, 9))
+contaCorrenteVip.transferir(contaPoupancaVip, 24240, "2022-06-05")
 
 
 // Faça um saque de 50000 reais da conta corrente do cliente vip e exiba o
@@ -114,7 +113,6 @@ contaCorrenteVip.sacar(50000)
 // Tente fazer outro saque de 50000 reais da conta corrente do cliente vip.
 contaCorrenteVip.sacar(50000)
 
-
 //Relatório dos Clientes do Banco
 
 //Liste todos os clientes do banco, seus respectivos endereços e saldos em
@@ -123,18 +121,18 @@ contaCorrenteVip.sacar(50000)
 //Cliente Comum
 console.log("-------------------------")
 console.log("Cliente Comum:")
-clienteComum.listarCliente()
+clienteComum.listar()
 console.log("-------------------------")
 
 //Cliente Vip
 console.log("Cliente VIP:")
-clienteVip.listarCliente()
+clienteVip.listar()
 console.log("-------------------------")
 
 // Liste todos os funcionários do banco, seus respectivos salários e cargos.
-console.log("Gerente:")
-funcionarioGerente.listarAtributos()
+console.log("Funcionários")
 console.log("-------------------------")
-console.log("Atendente:")
-funcionarioAtendente.listarAtributos()
+funcionarioGerente.listar()
+console.log("-------------------------")
+funcionarioAtendente.listar()
 console.log("-------------------------")

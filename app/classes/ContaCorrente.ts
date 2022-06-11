@@ -8,7 +8,7 @@ export class ContaCorrente extends Conta {
 
     constructor(numero: string, cliente: Cliente) {
         super(numero, cliente)
-        this.limiteVip(cliente)
+        this.limiteConta(cliente)
     }
 
     public get limite(): number {
@@ -16,10 +16,10 @@ export class ContaCorrente extends Conta {
     }
 
     public addCliente(cliente: Cliente): void {
-        this.limiteVip(cliente)
+        this.limiteConta(cliente)
     }
 
-    public transferir(contaDestino: Conta, valor: number, data?: Date): void {
+    public transferir(contaDestino: Conta, valor: number, data?: string): void {
 
         if (valor <= this.saldo + this._limite) {
 
@@ -66,7 +66,7 @@ export class ContaCorrente extends Conta {
 
     }
 
-    public limiteVip(cliente: Cliente): void {
+    public limiteConta(cliente: Cliente): void {
         cliente.vip ? this._limite = 30000 : this._limite = 50
     }
 

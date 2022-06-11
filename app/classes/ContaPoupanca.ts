@@ -4,7 +4,7 @@ import { SaldoAniversario } from "./SaldoAniversario.js"
 export class ContaPoupanca extends Conta {
 
     private _variacao: number
-    private _saldoAniversario = new SaldoAniversario()
+    private _depositos: Array<SaldoAniversario> = []
 
     public get variacao(): number {
         return this._variacao
@@ -14,44 +14,74 @@ export class ContaPoupanca extends Conta {
         this._variacao = value;
     }
 
-    public depositar(valor: number, data: Date = new Date()): void {
-        let diaDeposito = data.getDate()
-        let mesDeposito = data.getMonth()
-        let anoDeposito = data.getFullYear()
+    public depositar(valor: number, data: string = ""): void {
 
-        this._saldoAniversario.dia = new Date(anoDeposito, mesDeposito, diaDeposito)
-        this._saldoAniversario.saldo = valor
-        this.saldo += valor
+        if (data == "") {
+            data = new Date().toString()
+        }
+
+        let dataDeposito = new Date(data)
+        let saldoAniversario = new SaldoAniversario(dataDeposito.getTime(), valor)
+        this._depositos.push(saldoAniversario)
+
+        this.atualizarSaldo(this._depositos)
 
     }
 
     public sacar(valor: number): void {
 
-        this._saldoAniversario.saldo < valor ? console.log("Saldo insuficiente") : this._saldoAniversario.saldo -= valor
+        let dataSaque = new Date()
 
-    }
+        if (this.verificarDatas(dataSaque, valor)) {
 
-    public resgatar(contaDestino: Conta, valor: number, date: Date) {
+            this.atualizarSaldo(this._depositos)
 
-        let mesResgate = date.getMonth()
-        let diaResgate = date.getDate()
-
-        let mesDeposito = this._saldoAniversario.dia.getMonth()
-        let diaDeposito = this._saldoAniversario.dia.getDate()
-
-        let novoMes = 0
-
-        mesDeposito == 11 ? novoMes = 0 : novoMes = (mesDeposito + 1)
-
-        if (mesResgate >= novoMes && diaResgate >= diaDeposito) {
-            this._saldoAniversario.saldo -= valor
-            this.saldo -= valor
-            contaDestino.depositar(valor)
-            console.log("Resgate efetuado")
-        } else {
-            console.log("Não foi possível realizar o resgate, a data de aniversário ainda não chegou :(")
         }
 
     }
 
+    public resgatar(contaDestino: Conta, valor: number, data: string) {
+
+        let dataResgate = new Date(data)
+
+        // let mesMs = (24 * 60 * 60 * 1000 * 30)
+
+        // let checarData = this._depositos.filter(deposito => dataResgate.getTime() >= deposito.dia + mesMs
+        //     && valor <= deposito.saldo)
+
+        // checarData.forEach(deposito => {
+        //     deposito.saldo -= valor
+        // })
+        if (this.verificarDatas(dataResgate, valor)) {
+
+            contaDestino.depositar(valor)
+
+            this.atualizarSaldo(this._depositos)
+
+        }
+
+    }
+
+    private verificarDatas(data: Date, valor: number): boolean {
+
+        let mesMs = (24 * 60 * 60 * 1000 * 30)
+
+        let checarData = this._depositos.filter(deposito => data.getTime() >= deposito.dia + mesMs
+            && valor <= deposito.saldo)
+
+        checarData.forEach(deposito => {
+            deposito.saldo -= valor
+        })
+
+        return checarData.length > 0 ? true : false
+
+    }
+
+    private atualizarSaldo(depositos: Array<SaldoAniversario>): void {
+        let total = 0;
+        depositos.forEach((deposito) => {
+            total += deposito.saldo
+        })
+        this.saldo = total
+    }
 }
