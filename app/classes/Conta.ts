@@ -22,13 +22,9 @@ export abstract class Conta {
         return this._numero
     }
 
-    public set numero(value: string) {
-        this._numero = value
-    }
-
     public get saldo(): number {
         let saldo = this._saldo
-        return parseFloat(saldo.toFixed(2))
+        return parseFloat(saldo.toFixed(4))
     }
 
     public set saldo(saldo: number) {

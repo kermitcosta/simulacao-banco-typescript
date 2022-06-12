@@ -44,14 +44,6 @@ export class ContaPoupanca extends Conta {
 
         let dataResgate = new Date(data)
 
-        // let mesMs = (24 * 60 * 60 * 1000 * 30)
-
-        // let checarData = this._depositos.filter(deposito => dataResgate.getTime() >= deposito.dia + mesMs
-        //     && valor <= deposito.saldo)
-
-        // checarData.forEach(deposito => {
-        //     deposito.saldo -= valor
-        // })
         if (this.verificarDatas(dataResgate, valor)) {
 
             contaDestino.depositar(valor)

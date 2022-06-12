@@ -15,8 +15,24 @@ export class ContaCorrente extends Conta {
         return this._limite
     }
 
-    public addCliente(cliente: Cliente): void {
-        this.limiteConta(cliente)
+    public sacar(valor: number): void {
+
+        if (valor <= this.saldo + this._limite) {
+
+            this.saldo -= valor
+            console.log(`Saque de ${valor} efetuado`)
+
+        } else {
+            console.log("Saque não pode ser efetuado")
+        }
+
+    }
+
+    public depositar(valor: number): void {
+
+        this.saldo += valor
+        console.log(`Depósito de ${valor} efetuado`)
+
     }
 
     public transferir(contaDestino: Conta, valor: number, data?: string): void {
@@ -43,26 +59,6 @@ export class ContaCorrente extends Conta {
 
             console.log("Transferência não pode ser efetuada")
         }
-
-    }
-
-    public sacar(valor: number): void {
-
-        if (valor <= this.saldo + this._limite) {
-
-            this.saldo -= valor
-            console.log(`Saque de ${valor} efetuado`)
-
-        } else {
-            console.log("Saque não pode ser efetuado")
-        }
-
-    }
-
-    public depositar(valor: number): void {
-
-        this.saldo += valor
-        console.log(`Depósito de ${valor} efetuado`)
 
     }
 

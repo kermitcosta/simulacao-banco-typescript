@@ -104,7 +104,6 @@ contaCorrenteVip.depositar(60600)
 // vip para a sua conta poupança no dia 05/06/2022.
 contaCorrenteVip.transferir(contaPoupancaVip, 24240, "2022-06-05")
 
-
 // Faça um saque de 50000 reais da conta corrente do cliente vip e exiba o
 // saldo em conta após a ação.
 contaCorrenteVip.sacar(50000)
