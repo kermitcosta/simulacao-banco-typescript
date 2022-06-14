@@ -56,7 +56,6 @@ export class ContaCorrente extends Conta {
             }
 
         } else {
-
             console.log("Transferência não pode ser efetuada")
         }
 

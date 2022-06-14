@@ -5,7 +5,7 @@ import { ContaPoupanca } from "./classes/ContaPoupanca.js"
 import { Endereco } from "./classes/Endereco.js"
 import { Funcionario } from "./classes/Funcionario.js"
 
-//Crie dois funcionários do banco, um gerente e um atendente.
+// Crie dois funcionários do banco, um gerente e um atendente.
 const cargoGerente = new Cargo("Gerente")
 const cargoAtendente = new Cargo("Atendente")
 
@@ -22,7 +22,7 @@ funcionarioAtendente.salario = 3000
 // do banco, um deles com um endereço apenas e outro com dois endereços
 // cadastrados.
 
-//Cliente 1 (vip com dois endereços)
+// Cliente 1 (vip com dois endereços)
 const clienteVip = new Cliente("740.871.871-01", "Lavinia Pinto Santos", "(75) 7105-4165", true)
 
 const enderecoVip1 = new Endereco()
@@ -49,10 +49,10 @@ const contaCorrenteVip = new ContaCorrente("8934-1", clienteVip)
 
 const contaPoupancaVip = new ContaPoupanca("9283-3", clienteVip)
 
-//Cliente 2 (não é vip com um endereço)
+// Cliente 2 (não é vip com um endereço)
 const clienteComum = new Cliente("243.711.363-03", "Vitor Barbosa Cardoso", "(84) 2082-4051")
 
-const enderecoComum = new Endereco
+const enderecoComum = new Endereco()
 enderecoComum.cep = "59070-200"
 enderecoComum.logradouro = "Avenida Paraíba"
 enderecoComum.numero = "1269"
@@ -66,7 +66,7 @@ const contaCorrenteComum = new ContaCorrente("2176-1", clienteComum)
 
 const contaPoupancaComum = new ContaPoupanca("6732-3", clienteComum)
 
-//CLIENTE NÃO VIP
+// CLIENTE NÃO VIP
 
 // Faça um depósito de um salário mínimo na conta corrente do cliente não vip
 contaCorrenteComum.depositar(1212)
@@ -81,7 +81,7 @@ contaCorrenteComum.transferir(contaPoupancaComum, 60.6, "2022-06-04")
 // Faça um saque de 50% de um salário mínimo da conta corrente do cliente
 // não vip e exiba o saldo em conta após a ação.
 contaCorrenteComum.sacar(606)
-// console.log(contaCorrenteComum.saldo)
+console.log(contaCorrenteComum.saldo)
 
 // Tente fazer outro saque de 50% de um salário mínimo da conta corrente do
 // cliente não vip
@@ -95,7 +95,7 @@ contaPoupancaComum.depositar(50, "2022-06-09")
 contaPoupancaComum.resgatar(contaCorrenteComum, 60, "2022-07-09")
 
 
-//CLIENTE VIP
+// CLIENTE VIP
 
 // Faça um depósito de 50 salários mínimos na conta corrente do cliente vip.
 contaCorrenteVip.depositar(60600)
@@ -107,17 +107,18 @@ contaCorrenteVip.transferir(contaPoupancaVip, 24240, "2022-06-05")
 // Faça um saque de 50000 reais da conta corrente do cliente vip e exiba o
 // saldo em conta após a ação.
 contaCorrenteVip.sacar(50000)
-// console.log(contaCorrenteVip.saldo)
+console.log(contaCorrenteVip.saldo)
 
 // Tente fazer outro saque de 50000 reais da conta corrente do cliente vip.
 contaCorrenteVip.sacar(50000)
 
-//Relatório dos Clientes do Banco
 
-//Liste todos os clientes do banco, seus respectivos endereços e saldos em
+// Relatório dos Clientes do Banco
+
+// Liste todos os clientes do banco, seus respectivos endereços e saldos em
 // conta de todas suas contas
 
-//Cliente Comum
+// //Cliente Comum
 console.log("-------------------------")
 console.log("Cliente Comum:")
 clienteComum.listar()
@@ -128,7 +129,7 @@ console.log("Cliente VIP:")
 clienteVip.listar()
 console.log("-------------------------")
 
-// Liste todos os funcionários do banco, seus respectivos salários e cargos.
+// // Liste todos os funcionários do banco, seus respectivos salários e cargos.
 console.log("Funcionários")
 console.log("-------------------------")
 funcionarioGerente.listar()
